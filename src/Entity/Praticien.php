@@ -80,7 +80,7 @@ class Praticien
      *   @ORM\JoinColumn(name="lieuExercice", referencedColumnName="idLieu")
      * })
      */
-    private $idlieu;
+    private $lieuExercice;
 
     public function getIdPraticien(): ?int
     {
@@ -173,12 +173,12 @@ class Praticien
 
     public function getLieuexercice(): ?Lieu
     {
-        return $this->lieuexercice;
+        return $this->lieuExercice;
     }
 
-    public function setLieuexercice(string $lieuexercice): self
+    public function setLieuexercice(string $lieuExercice): self
     {
-        $this->lieuexercice = $lieuexercice;
+        $this->lieuExercice = $lieuExercice;
 
         return $this;
     }

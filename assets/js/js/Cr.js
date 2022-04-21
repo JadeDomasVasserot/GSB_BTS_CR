@@ -3,16 +3,22 @@ export default {
     name: "cr",
     data() {
       return {
-        medicaments : axios.get('http://127.0.0.1:8000/api/medicaments.json')
-        .then(response => {
-            this.medicaments = response.data['hydra:member'];
-            console.log(medicaments.nomcommercial);
-        })
-      };
+        medicaments : axios.get('http://127.0.0.1:8000/api/medicaments').then(rep => this.medicaments = rep.data),
+        motifs :  axios.get('http://127.0.0.1:8000/api/motifs').then(rep => this.motifs = rep.data),
+        praticiens: axios.get('http://127.0.0.1:8000/api/praticiens').then(rep => this.praticiens = rep.data),
+        praticienChoix: "",
+        choixPratiAPI: "",
+        isSelectRemplaçant: false,
+        selectRemplaçant: "",
+        motifSelect: "",
+    };
     },
     methods: {
-        test(){
-            console.log(this.medicaments);
+        isPraticienChoisi(){
+           return this.choixPraticien != null;
+        },
+        choixPraticien(){
+            this.choixPratiAPI = axios.get('http://127.0.0.1:8000/api/praticiens/'+ this.praticienChoix).then(rep => this.choixPratiAPI = rep.data)
         },
         isCheck(pSelect, pVal){
             if (pSelect==pVal) 

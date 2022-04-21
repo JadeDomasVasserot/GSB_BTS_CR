@@ -8,7 +8,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * Medicament
  *
- * @ORM\Table(name="medicament", indexes={@ORM\Index(name="idFamileFK", columns={"idFamille"})})
+ * @ORM\Table(name="medicament")
   * @ORM\Entity
  * @ApiResource()
  */

@@ -38,17 +38,24 @@ class HomeController extends AbstractController
                 $id = $user->getId();
                 $nom = $user->getNom();
                 $prenom = $user->getPrenom();
+                $loginUser = $user->getLogin();
+                $mdp = $user->getMdp();
                 $adresse = $user->getAdresse();
                 $cp = $user->getCp();
                 $ville = $user->getVille();
+                $laboratoire = $user->getIdlaboratoire();
+                $secteur = $user->getIdsecteur();
                 $dateEmbauche = $user->getDateembauche();
-
                     $session->set('id',$id);
                     $session->set('nom',$nom);
                     $session->set('prenom',$prenom);
+                    $session->set('login',$loginUser);
+                    $session->set('mdp',$mdp);
                     $session->set('adresse',$adresse);
                     $session->set('cp',$cp);
                     $session->set('ville',$ville);
+                    $session->set('laboratoire',$laboratoire);
+                    $session->set('secteur',$secteur);
                     $session->set('dateEmbauche',$dateEmbauche);
                   
                     $response = new Response();

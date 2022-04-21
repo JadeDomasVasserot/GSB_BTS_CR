@@ -8,7 +8,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * Rapportvisite
  *
- * @ORM\Table(name="rapportvisite", indexes={@ORM\Index(name="idVisiteurFK_rapport", columns={"idVisiteur"}), @ORM\Index(name="idPraticienFK_rapport", columns={"idPraticien"}), @ORM\Index(name="idMotifFK_rapport", columns={"idMotif"})})
+ * @ORM\Table(name="rapportvisite")
   * @ORM\Entity
  * @ApiResource()
  */
@@ -53,7 +53,13 @@ class Rapportvisite
      * })
      */
     private $idmotif;
-
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="motifText", type="string", length=25, nullable=false)
+     */
+    private $motiftext;
     /**
      * @var \Visiteur
      *
@@ -122,6 +128,17 @@ class Rapportvisite
     public function setIdmotif(?Motif $idmotif): self
     {
         $this->idmotif = $idmotif;
+
+        return $this;
+    }
+    public function getMotiftext(): ?string
+    {
+        return $this->motifText;
+    }
+
+    public function setMotiftext(string $motiftext): self
+    {
+        $this->motifText = $motiftext;
 
         return $this;
     }
