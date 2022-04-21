@@ -4,7 +4,7 @@
     <nav class="navbar navbar-light sticky-top" style="background-color: #e3f2fd;">
       <ul class="nav"  >
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/rapportvisite/newCustom">Comptes-Rendus</a>
+          <a class="nav-link" aria-current="page" href="/rapportvisite">Comptes-Rendus</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/visiteur">Visiteurs</a>

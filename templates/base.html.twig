@@ -4,10 +4,8 @@
 <div class="text-center">
 	<img src="{{asset('/img/logo.jpg')}}" alt="logo">
 </div>
-<div id="app" class="mt-5"> 
-{% block body %}
-{% endblock %}
-</div>
+<div id="app" class="mt-5"> {% block body %}{% endblock %}
+	</div>
 
 	{% block javascripts %}
 		{{ encore_entry_script_tags('app') }}
