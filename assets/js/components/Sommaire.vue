@@ -25,7 +25,7 @@
   </div>
 </template>
 
-<script src="../js/Sommaire.js>
+<script src="../js/Sommaire.js">
 
 </script>
 <style scoped>
