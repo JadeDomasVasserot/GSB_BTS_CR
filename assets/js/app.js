@@ -12,7 +12,6 @@ import ListeMedicament from './components/ListeMedicament.vue'
 import ListeVisiteur from './components/ListeVisiteur.vue'
 import IndexVisiteur from './components/IndexVisiteur.vue'
 import ShowCr from './components/ShowCr.vue'
-
 /**
 * Create a fresh Vue Application instance
 */

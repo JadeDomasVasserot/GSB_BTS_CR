@@ -12,7 +12,6 @@
           <th scope="col">Bilan</th>
           <th scope="col">Motif</th>
           <th scope="col">Produits</th>
-          <th scope="col">Echantillons</th>
         </tr>
       </thead>
       <tbody>
@@ -23,10 +22,34 @@
         >
           <th>{{rapport.id}}</th>
           <td v-if="rapport.dateVisite">{{moment(rapport.dateVisite.date).format("DD/MM/YYYY") }}</td>
-          <td>{{rapport.idPraticien}}</td>
+          <td>{{rapport.prenomPraticien}} {{rapport.nomPraticien}}</td>
           <td>{{rapport.estRemplacant}}</td>
           <td>{{rapport.bilan}}</td>
           <td>{{rapport.idMotif}}</td>
+          <td><button @click="voirInfos(rapport.id)">Voir infos</button></td>
+        </tr>
+      </tbody>
+    </table>
+        <table class="table table-light table-hover text-center mt-3" v-if="infoProduct == true">
+      <thead>
+        <tr>
+          <th scope="col">Nom du médicament</th>
+          <th scope="col">Est un échantillon ?</th>
+          <th scope="col">Est présenté ?</th>
+          <th scope="col">Quantité</th>
+          <th scope="col">Id du rapport sélectionné</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="medica in medicaments[0]"
+          :key="medica.id"
+          :value="medica.id">
+          <th>{{medica.nomMedica}}</th>
+          <td>{{medica.estEchantillon}}</td>
+            <td>{{medica.estPresente}}</td>
+          <td>{{medica.quantite}}</td>
+          <td>{{medica.idRapport}}</td>
+          <td></td>
         </tr>
       </tbody>
     </table>

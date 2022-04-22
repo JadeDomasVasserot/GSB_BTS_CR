@@ -1,11 +1,10 @@
 <template>
   <div>
-    <h1>SOMMAIRE</h1>
     <nav
-      class="navbar navbar-light sticky-top"
+      class="navbar navbar-light sticky-top mb-5 mt-5"
       style="background-color: #e3f2fd"
     >
-      <ul class="nav">
+      <ul class="nav m-3">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/rapportvisite"
             >Créer un compte-rendu</a
@@ -17,7 +16,7 @@
           >
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="/visiteur/">Profil</a>
+          <a class="nav-link"  href="/visiteur/">Profil</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/visiteur/index">Choisir un visiteur</a>
@@ -48,4 +47,7 @@
 </template>
 
 <script src="../js/Sommaire.js"></script>
-<style scoped></style>
+
+<style scoped>
+
+</style>>

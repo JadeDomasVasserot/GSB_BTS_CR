@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Visiteur
@@ -187,12 +188,12 @@ class Visiteur
         return $this;
     }
 
-    public function getDateembauche(): ?\DateTimeInterface
+    public function getDateembauche(): ?\DateTime
     {
         return $this->dateembauche;
     }
 
-    public function setDateembauche(?\DateTimeInterface $dateembauche): self
+    public function setDateembauche(?\DateTime $dateembauche): self
     {
         $this->dateembauche = $dateembauche;
 

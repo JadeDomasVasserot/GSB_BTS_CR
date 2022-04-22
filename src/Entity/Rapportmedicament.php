@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Rapportmedicament
@@ -26,7 +27,7 @@ class Rapportmedicament
     /**
      * @var int
      *
-     * @ORM\Column(name="quantite", type="integer", nullable=false)
+     * @ORM\Column(name="quantite", type="integer", nullable=true)
      */
     private $quantite;
 
@@ -36,14 +37,12 @@ class Rapportmedicament
      * @ORM\Column(name="estEchantillon", type="boolean", nullable=false)
      */
     private $estechantillon;
-
-    /**
+     /**
      * @var bool
      *
-     * @ORM\Column(name="estDocumente", type="boolean", nullable=false)
+     * @ORM\Column(name="estPresente", type="boolean", nullable=false)
      */
-    private $estdocumente;
-
+    private $estpresente;
     /**
      * @var \Medicament
      *
@@ -91,25 +90,23 @@ class Rapportmedicament
 
         return $this;
     }
-
-    public function getEstdocumente(): ?bool
+    public function getEstpresente(): ?bool
     {
-        return $this->estdocumente;
+        return $this->estpresente;
     }
 
-    public function setEstdocumente(bool $estdocumente): self
+    public function setEstpresente(bool $estpresente): self
     {
-        $this->estdocumente = $estdocumente;
+        $this->estpresente = $estpresente;
 
         return $this;
     }
-
     public function getIdmedicament(): ?Medicament
     {
         return $this->idMedicament;
     }
 
-    public function setIdmedicament(string $idMedicament): self
+    public function setIdmedicament(Medicament $idMedicament): self
     {
         $this->idMedicament = $idMedicament;
 
@@ -121,12 +118,10 @@ class Rapportmedicament
         return $this->idRapport;
     }
 
-    public function setIdrapport(string $idRapport): self
+    public function setIdrapport(Rapportvisite $idRapport): self
     {
         $this->idRapport = $idRapport;
 
         return $this;
     }
-
-
 }

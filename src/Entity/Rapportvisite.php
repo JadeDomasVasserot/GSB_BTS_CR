@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Rapportvisite
@@ -57,9 +58,9 @@ class Rapportvisite
     /**
      * @var string
      *
-     * @ORM\Column(name="motifText", type="string", length=25, nullable=false)
+     * @ORM\Column(name="motifText", type="string", length=25, nullable=true)
      */
-    private $motiftext;
+    private $motifText;
     /**
      * @var \Visiteur
      *
@@ -84,12 +85,12 @@ class Rapportvisite
         return $this->idrapportvisite;
     }
 
-    public function getDatevisite(): ?\DateTimeInterface
+    public function getDatevisite(): ?\DateTime
     {
         return $this->datevisite;
     }
 
-    public function setDatevisite(\DateTimeInterface $datevisite): self
+    public function setDatevisite(\DateTime $datevisite): self
     {
         $this->datevisite = $datevisite;
 
@@ -125,7 +126,7 @@ class Rapportvisite
         return $this->idMotif;
     }
 
-    public function setIdmotif(string $idMotif): self
+    public function setIdmotif(Motif $idMotif): self
     {
         $this->idMotif = $idMotif;
 
@@ -136,9 +137,9 @@ class Rapportvisite
         return $this->motifText;
     }
 
-    public function setMotiftext(string $motiftext): self
+    public function setMotiftext(string $motifText): self
     {
-        $this->motifText = $motiftext;
+        $this->motifText = $motifText;
 
         return $this;
     }
@@ -148,7 +149,7 @@ class Rapportvisite
         return $this->idvisiteur;
     }
 
-    public function setIdvisiteur(string $idVisiteur): self
+    public function setIdvisiteur(Visiteur $idVisiteur): self
     {
         $this->idVisiteur = $idVisiteur;
 
@@ -160,7 +161,7 @@ class Rapportvisite
         return $this->idPraticien;
     }
 
-    public function setIdpraticien(string $idPraticien): self
+    public function setIdpraticien(Praticien $idPraticien): self
     {
         $this->idPraticien = $idPraticien;
 

@@ -69,7 +69,7 @@ class HomeController extends AbstractController
                                                         ]));
 
                     $response->headers->set('Content-Type', 'application/json');
-                    return $this->render('Home/menu.html.twig');
+                    return $this->render('Visiteur/profilVisiteur.html.twig');
                 }
             else
             {

@@ -16,12 +16,20 @@
                   <h4>
                     {{ currentUserSession.prenom }} {{ currentUserSession.nom }}
                   </h4>
+                 
+                <div class="col-sm-12">
+                  <button
+                    class="btn btn-info"
+                    @click="isSession(currentUserSession.id)"
+                    
+                    >Voir les infos</button>
+                </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" v-if="info === true">
           <div class="card mb-3">
             <div class="card-body">
               <div class="row">
@@ -29,7 +37,7 @@
                   <h6 class="mb-0">Nom de famille</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  {{ currentUserSession.nom }}
+                  {{ user.nom }}
                 </div>
               </div>
               <hr />
@@ -38,7 +46,7 @@
                   <h6 class="mb-0">Prénom</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  {{ currentUserSession.prenom }}
+                  {{ user.prenom }}
                 </div>
               </div>
               <hr />
@@ -47,7 +55,7 @@
                   <h6 class="mb-0">Login</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  {{ currentUserSession.login }}
+                  {{ user.login }}
                 </div>
               </div>
               <hr />
@@ -56,7 +64,7 @@
                   <h6 class="mb-0">Adresse</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  {{ currentUserSession.adresse }}
+                  {{ user.adresse }}
                 </div>
               </div>
               <hr />
@@ -65,7 +73,7 @@
                   <h6 class="mb-0">Code Postal</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  {{ currentUserSession.cp }}
+                  {{ user.cp }}
                 </div>
               </div>
               <hr />
@@ -74,7 +82,7 @@
                   <h6 class="mb-0">Ville</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  {{ currentUserSession.ville }}
+                  {{ user.ville }}
                 </div>
               </div>
               <hr />
@@ -84,12 +92,10 @@
                 </div>
                 <div class="col-sm-9 text-secondary" v-if="currentUserSession">
                   {{
-                    moment(currentUserSession.dateembauche).format("DD/MM/YYYY")
+                    moment(user.dateembauche).format("DD/MM/YYYY")
                   }}
                 </div>
               </div>
-              <hr />
-              <button @click="isSession()">Voir + d'infos</button>
               <hr />
               <div class="row">
                 <div class="col-sm-3">

@@ -89,8 +89,8 @@
                 >
                   <option
                     v-for="motif in motifs['hydra:member']"
-                    :key="motif.motiflib"
-                    :value="motif.motiflib"
+                    :key="motif.idmotif"
+                    :value="motif.idmotif"
                   >
                     {{ motif.motiflib }}
                   </option>
@@ -100,7 +100,7 @@
                   type="text"
                   name="RAP_MOTIFAUTRE"
                   class="form-control"
-                  :disabled="motifSelect !=='Autre'"
+                  :disabled="motifSelect !==5"
                 />
               </div>
             </div>
@@ -151,15 +151,7 @@
               </select>
             </div>
           </div>
-          <label class="col-form-label">DOCUMENTATION OFFERTE :</label>
-          <div>
-            <input
-              name="RAP_DOC"
-              type="checkbox"
-              class="form-check-input"
-              checked="false"
-            />
-          </div>
+
         </div>
         <div>
           <label class="col-form-label"><h3>Echantillons</h3></label>
