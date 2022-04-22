@@ -82,7 +82,7 @@ class RapportVisiteController extends AbstractController
         $entityManager->persist($rapport);
         $entityManager->flush();
 
-        if (isset($_POST["PROD1"])) {
+        if (isset($_POST["PROD1"])&& $_POST["PROD1"] !== "NULL") {
             $rapportMedicament1 = new Rapportmedicament();
             $entityManager = $this->getDoctrine()->getManager();
             $produit1 = $_POST["PROD1"];
@@ -98,7 +98,7 @@ class RapportVisiteController extends AbstractController
             $entityManager->persist($rapportMedicament1);
             $entityManager->flush();
         }
-        if (isset($_POST["PROD2"])) {
+        if (isset($_POST["PROD2"])&& $_POST["PROD2"] !== "NULL") {
             $rapportMedicament2 = new Rapportmedicament();
             $entityManager = $this->getDoctrine()->getManager();
             $produit2 = $_POST["PROD2"];
@@ -114,7 +114,7 @@ class RapportVisiteController extends AbstractController
             $entityManager->persist($rapportMedicament2);
             $entityManager->flush();
         }
-        if (isset($_POST["PRA_ECH1"]) && isset($_POST["PRA_QTE1"])) {
+        if (isset($_POST["PRA_ECH1"]) && isset($_POST["PRA_QTE1"])&& $_POST["PRA_ECH1"] !== "NULL") {
             $rapportMedicament3 = new Rapportmedicament();
             $entityManager = $this->getDoctrine()->getManager();
             $echantillon1 = $_POST["PRA_ECH1"];
@@ -132,7 +132,7 @@ class RapportVisiteController extends AbstractController
             $entityManager->persist($rapportMedicament3);
             $entityManager->flush();
         }
-        if (isset($_POST["PRA_ECH2"]) && isset($_POST["PRA_QTE2"])) {
+        if (isset($_POST["PRA_ECH2"]) && isset($_POST["PRA_QTE2"])&& $_POST["PRA_ECH2"] !== "NULL") {
             $rapportMedicament4 = new Rapportmedicament();
             $entityManager = $this->getDoctrine()->getManager();
             $echantillon2 = $_POST["PRA_ECH2"];

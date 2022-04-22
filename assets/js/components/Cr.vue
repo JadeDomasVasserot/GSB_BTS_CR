@@ -86,6 +86,7 @@
                   name="RAP_MOTIF"
                   class="form-select"
                    v-model="motifSelect"
+                   required
                 >
                   <option
                     v-for="motif in motifs['hydra:member']"
@@ -101,6 +102,7 @@
                   name="RAP_MOTIFAUTRE"
                   class="form-control"
                   :disabled="motifSelect !==5"
+                  required
                 />
               </div>
             </div>
@@ -114,6 +116,7 @@
                   cols="50"
                   name="RAP_BILAN"
                   class="form-control"
+                  required
                 ></textarea>
               </div>
             </div>
@@ -127,6 +130,7 @@
             <div>
               <label class="col-form-label"> PRODUIT 1 : </label
               ><select name="PROD1" class="form-select">
+                <option selected value="NULL">AUCUN</option>
                 <option
                   v-for="medicament in medicaments['hydra:member']"
                   :key="medicament.idmedicament"
@@ -141,6 +145,8 @@
             <div>
               <label class="col-form-label"> PRODUIT 2 : </label
               ><select name="PROD2" class="form-select">
+                                <option selected value="NULL">AUCUN</option>
+
                 <option
                   v-for="medicament in medicaments['hydra:member']"
                   :key="medicament.idmedicament"
@@ -160,7 +166,9 @@
           <div class="col-form-label" id="lignes">
             <label class="col-form-label">Produit : </label>
             <div>
-              <select name="PRA_ECH1" class="form-select">
+              <select name="PRA_ECH1" class="form-select" v-model="produitSelected">
+               <option selected value="NULL">AUCUN</option>
+
                 <option
                   v-for="medicament in medicaments['hydra:member']"
                   :key="medicament.idmedicament"
@@ -169,13 +177,15 @@
                   {{ medicament.nomcommercial }}
                 </option>
               </select>
-              <input
-                type="number"
-                name="PRA_QTE1"
-                size="2"
-                class="form-control"
-              />
-              <input type="button" id="but1" value="+" @click="ajoutLigne(1)" />
+              <div v-if="produitSelected != 'NULL'">
+                <input
+                  type="number"
+                  name="PRA_QTE1"
+                  size="2"
+                  class="form-control"
+                />
+                <input type="button" id="but1" value="+" @click="ajoutLigne(1)" />
+              </div>
             </div>
           </div>
         </div>

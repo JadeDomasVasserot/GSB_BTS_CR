@@ -31,6 +31,7 @@
       </tbody>
     </table>
         <table class="table table-light table-hover text-center mt-3" v-if="infoProduct == true">
+          <h1 v-if="medicaments ==0">Pas de produit asssocié à pour ce rapport</h1>
       <thead>
         <tr>
           <th scope="col">Nom du médicament</th>
