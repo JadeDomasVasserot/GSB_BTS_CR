@@ -84,6 +84,7 @@ class HomeController extends AbstractController
     }
      /**
      * @Route("/deconnexion", name="deconnexion")
+     * deconnecte l'user et clear la session
      */
     public function deconnexion(SessionInterface $session){
 

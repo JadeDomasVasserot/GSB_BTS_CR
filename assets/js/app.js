@@ -9,6 +9,9 @@ import IndexPraticien from './components/IndexPraticien.vue'
 import ListePraticien from './components/ListePraticien.vue'
 import IndexMedicament from './components/IndexMedicament.vue'
 import ListeMedicament from './components/ListeMedicament.vue'
+import ListeVisiteur from './components/ListeVisiteur.vue'
+import IndexVisiteur from './components/IndexVisiteur.vue'
+import ShowCr from './components/ShowCr.vue'
 
 /**
 * Create a fresh Vue Application instance
@@ -25,5 +28,8 @@ new Vue({
     'listepraticien': ListePraticien,
     'indexmedicament': IndexMedicament,
     'listemedicament': ListeMedicament,
+    'indexvisiteur': IndexVisiteur,
+    'listevisiteur': ListeVisiteur,
+    'showcr': ShowCr,
   }
 });

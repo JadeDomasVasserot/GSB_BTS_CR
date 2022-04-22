@@ -14,7 +14,7 @@ class PraticienController extends AbstractController
 {
     /**
      * @Route("/", name="app_home_praticien")
-     * affiche la page home
+     * affiche la page home où l'on choisit un praticien
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class PraticienController extends AbstractController
     }
     /**
      * @Route("/liste", name="app_liste_praticien")
-     * affiche la page home
+     * affiche la liste des praticiens
      */
     public function liste()
     {

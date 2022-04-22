@@ -14,9 +14,9 @@ class VisiteurController extends AbstractController
 {
     /**
      * @Route("/", name="app_home_visiteur")
-     * affiche la page home
+     * affiche la page home pour voir le profil du visiteur
      */
-    public function index(SessionInterface $session)
+    public function profil(SessionInterface $session)
     {
         $currentVisiteur =$session->get('id');
         
@@ -58,6 +58,22 @@ class VisiteurController extends AbstractController
             return $this->render('Home/erreur404.html.twig');
 
         }
+    }
+     /**
+     * @Route("/liste", name="app_liste_visiteur")
+     * affiche la liste des collègues visiteurs
+     */
+    public function liste()
+    {
+        return $this->render('Visiteur/liste.html.twig');
+    }
+    /**
+     * @Route("/index", name="app_choix_visiteur")
+     * permet de choisir son visiteur
+     */
+    public function choixVisiteur()
+    {
+        return $this->render('Visiteur/index.html.twig');
     }
   
 }

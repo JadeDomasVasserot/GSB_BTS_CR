@@ -14,7 +14,7 @@ class MedicamentController extends AbstractController
 {
     /**
      * @Route("/", name="app_home_medicament")
-     * affiche la page home
+     * affiche la page home où l'on choisit un médicament
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class MedicamentController extends AbstractController
     }
     /**
      * @Route("/liste", name="app_liste_medicament")
-     * affiche la page home
+     * affiche la liste des médicaments
      */
     public function liste()
     {

@@ -52,7 +52,7 @@ class Rapportvisite
      *   @ORM\JoinColumn(name="idMotif", referencedColumnName="idMotif")
      * })
      */
-    private $idmotif;
+    private $idMotif;
     
     /**
      * @var string
@@ -68,7 +68,7 @@ class Rapportvisite
      *   @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
      * })
      */
-    private $idvisiteur;
+    private $idVisiteur;
 
     /**
      * @var \Praticien
@@ -78,7 +78,7 @@ class Rapportvisite
      *   @ORM\JoinColumn(name="idPraticien", referencedColumnName="idPraticien")
      * })
      */
-    private $idpraticien;
+    private $idPraticien;
     public function getIdRapportvisite(): ?int
     {
         return $this->idrapportvisite;
@@ -122,12 +122,12 @@ class Rapportvisite
 
     public function getIdmotif(): ?Motif
     {
-        return $this->idmotif;
+        return $this->idMotif;
     }
 
-    public function setIdmotif(?Motif $idmotif): self
+    public function setIdmotif(string $idMotif): self
     {
-        $this->idmotif = $idmotif;
+        $this->idMotif = $idMotif;
 
         return $this;
     }
@@ -148,21 +148,21 @@ class Rapportvisite
         return $this->idvisiteur;
     }
 
-    public function setIdvisiteur(?Visiteur $idvisiteur): self
+    public function setIdvisiteur(string $idVisiteur): self
     {
-        $this->idvisiteur = $idvisiteur;
+        $this->idVisiteur = $idVisiteur;
 
         return $this;
     }
 
     public function getIdpraticien(): ?Praticien
     {
-        return $this->idpraticien;
+        return $this->idPraticien;
     }
 
-    public function setIdpraticien(?Praticien $idpraticien): self
+    public function setIdpraticien(string $idPraticien): self
     {
-        $this->idpraticien = $idpraticien;
+        $this->idPraticien = $idPraticien;
 
         return $this;
     }

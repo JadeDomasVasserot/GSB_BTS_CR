@@ -3,39 +3,34 @@
     <table class="table table-light table-hover text-center">
       <thead>
         <tr>
-          <th scope="col">Id du praticien</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Prénom</th>
-          <th scope="col">Adresse</th>
-          <th scope="col">CodePostal</th>
-          <th scope="col">Ville</th>
-          <th scope="col">Date d'embauche</th>
-          <th scope="col">Coefficient de notoriété</th>
-          <th scope="col">Lieu de l'exercice</th>
+          <th scope="col">Id du médicament</th>
+          <th scope="col">Nom commercial</th>
+          <th scope="col">Composition</th>
+          <th scope="col">Effets indésirables</th>
+          <th scope="col">Contre-indications</th>
+          <th scope="col">Prix de l'échantillon</th>
+          <th scope="col">Famille</th>
         </tr>
       </thead>
       <tbody>
         <tr
-          v-for="praticien in praticiens['hydra:member']"
-          :key="praticien.idpraticien"
-          :value="praticien.idpraticien"
+          v-for="medicament in medicaments['hydra:member']"
+          :key="medicament.idmedicament"
+          :value="medicament.idmedicament"
         >
-          <th>{{praticien.idpraticien}}</th>
-          <td>{{praticien.nom}}</td>
-          <td>{{praticien.prenom}}</td>
-          <td>{{praticien.adresse}}</td>
-          <td>{{praticien.cp}}</td>
-          <td>{{praticien.ville}}</td>
-          <td v-if="praticien.dateembauche">  {{ moment(praticien.dateembauche).format("DD/MM/YYYY") }}</td>
-          <td>{{praticien.coefnotoriete}}</td>
-          <td>{{praticien.lieuexercice.lieuexercice}}</td>
-
+          <th>{{medicament.idmedicament}}</th>
+          <td>{{medicament.nomcommercial}}</td>
+          <td>{{medicament.composition}}</td>
+          <td>{{medicament.effetsindesirables}}</td>
+          <td>{{medicament.contreindications}}</td>
+          <td>{{medicament.prixechantillon}}</td>
+          <td>{{medicament.idfamille.famlib}}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
 
-<script src="../js/ListePraticien.js"></script>
+<script src="../js/ListeMedicament.js"></script>
 
 <style scoped></style>

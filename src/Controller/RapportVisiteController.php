@@ -17,7 +17,7 @@ class RapportVisiteController extends AbstractController
 {
     /**
      * @Route("/", name="app_rapport")
-     * affiche la page Rapport de visite
+     * affiche la page Rapport de visite pour créer
      */
     public function index()
     {
@@ -26,7 +26,7 @@ class RapportVisiteController extends AbstractController
 
     /**
      * @Route("/new", name="app_rapport_new", methods={"POST"})
-     * créer un  Rapport de visite
+     * créer un  Rapport de visite ezt ajout en bdd
      */
     public function new(SessionInterface $session)
     {
@@ -68,6 +68,73 @@ class RapportVisiteController extends AbstractController
             $echantillon2 = $_POST["PRA_ECH2"];
             $quantite2 = $_POST["PRA_QTE2"];
         }
+
+    }
+     /**
+     * @Route("/show/list", name="app_rapport_show_list", methods={"GET"})
+     * créer API récupérer les rapports d'un visiteur connecté
+     */
+    public function show(SessionInterface $session)
+    {
+        try {
+        $idUser = $session->get('id');
+        $rapports = $this->getDoctrine()
+        ->getRepository(Rapportvisite::class)
+        ->join
+        ->findBy([
+            'idVisiteur' => $idUser, 
+        ]);
+        
+        } catch (\Exception $err)
+        {
+            return $this->render('Home/erreur404.html.twig');
+        }
+        $rapportsTab = array();
+        
+        foreach($rapports as $rapp)
+        {
+            $id =  $rapp->getIdRapportvisite();
+            $dateVisite = $rapp->getDatevisite();
+            $estRemplacant = $rapp->getEstremplacant();
+            $bilan = $rapp->getBilan();
+            $idMotif = $rapp->getIdmotif();
+            if($rapp->getIdmotif() == "Autre"){
+                $motifText = $rapp->getMotiftext();
+            }
+            else{
+                $motifText ="";
+            }
+            $idPraticien = $rapp->getIdpraticien();
+            $rapp = array(
+                'id' => $id,
+                'dateVisite' => $dateVisite,
+                'estRemplacant' => $estRemplacant,
+                'bilan' => $bilan,
+                'idMotif' => $idMotif,    
+                'motifText' => $motifText,
+                'idPraticien' => $idPraticien,
+
+            );
+
+            array_push($rapportsTab, $rapp);
+        }
+                
+        $response = new Response();
+        $response->setContent(json_encode([$rapportsTab]));
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response; 
+
+     
+
+    }
+    /**
+     * @Route("/show", name="app_rapport_show", methods={"GET"})
+     * page show pour voir ses cr
+     */
+    public function showPage(SessionInterface $session)
+    {
+        return $this->render('Rapportvisite/show.html.twig');
 
     }
 }

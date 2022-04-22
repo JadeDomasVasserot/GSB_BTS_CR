@@ -16,8 +16,14 @@
             >Voir ses comptes-rendus</a
           >
         </li>
-        <li class="nav-item">
+         <li class="nav-item">
           <a class="nav-link" href="/visiteur/">Profil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/visiteur/index">Choisir un visiteur</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="/visiteur/liste">Liste des visiteurs</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/praticien/">Choisir un praticien</a>

@@ -87,7 +87,7 @@ class Visiteur
      *   @ORM\JoinColumn(name="idLaboratoire", referencedColumnName="idLaboratoire")
      * })
      */
-    private $idlaboratoire;
+    private $idLaboratoire;
 
     /**
      * @var \Secteur
@@ -97,7 +97,7 @@ class Visiteur
      *   @ORM\JoinColumn(name="idSecteur", referencedColumnName="idSecteur")
      * })
      */
-    private $idsecteur;
+    private $idSecteur;
     public function getId(): ?string
     {
         return $this->id;
@@ -201,24 +201,24 @@ class Visiteur
 
     public function getIdlaboratoire(): ?Laboratoire
     {
-        return $this->idlaboratoire;
+        return $this->idLaboratoire;
     }
 
-    public function setIdlaboratoire(?Laboratoire $idlaboratoire): self
+    public function setIdlaboratoire(string $idLaboratoire): self
     {
-        $this->idlaboratoire = $idlaboratoire;
+        $this->idLaboratoire = $idLaboratoire;
 
         return $this;
     }
 
     public function getIdsecteur(): ?Secteur
     {
-        return $this->idsecteur;
+        return $this->idSecteur;
     }
 
-    public function setIdsecteur(?Secteur $idsecteur): self
+    public function setIdsecteur(string $idSecteur): self
     {
-        $this->idsecteur = $idsecteur;
+        $this->idSecteur = $idSecteur;
 
         return $this;
     }

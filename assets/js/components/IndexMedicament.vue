@@ -35,7 +35,7 @@
                     width="150"
                   />
                   <div class="mt-3">
-                    <h4>{{ choixMedicAPI.nomcommercial }}</h4>
+                    <h4>{{choixMedicAPI.idmedicament}} {{ choixMedicAPI.nomcommercial }}</h4>
                   </div>
                 </div>
               </div>
@@ -95,8 +95,9 @@
                   </div>
                   <div
                     class="col-sm-9 text-secondary"
+                    v-if="choixMedicAPI.idfamille"
                   >
-                    {{ choixMedicAPI.idfamille.idfamille }}
+                    {{ choixMedicAPI.idfamille.famlib }}
                   </div>
                 </div>
               </div>

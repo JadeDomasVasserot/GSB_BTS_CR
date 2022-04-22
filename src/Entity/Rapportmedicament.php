@@ -52,7 +52,7 @@ class Rapportmedicament
      *   @ORM\JoinColumn(name="idMedicament", referencedColumnName="idMedicament")
      * })
      */
-    private $idmedicament;
+    private $idMedicament;
 
     /**
      * @var \Rapportvisite
@@ -62,7 +62,7 @@ class Rapportmedicament
      *   @ORM\JoinColumn(name="idRapport", referencedColumnName="idRapportVisite")
      * })
      */
-    private $idrapport;
+    private $idRapport;
     public function getIdRapportmedi(): ?int
     {
         return $this->idrapportmedi;
@@ -106,24 +106,24 @@ class Rapportmedicament
 
     public function getIdmedicament(): ?Medicament
     {
-        return $this->idmedicament;
+        return $this->idMedicament;
     }
 
-    public function setIdmedicament(?Medicament $idmedicament): self
+    public function setIdmedicament(string $idMedicament): self
     {
-        $this->idmedicament = $idmedicament;
+        $this->idMedicament = $idMedicament;
 
         return $this;
     }
 
     public function getIdrapport(): ?Rapportvisite
     {
-        return $this->idrapport;
+        return $this->idRapport;
     }
 
-    public function setIdrapport(?Rapportvisite $idrapport): self
+    public function setIdrapport(string $idRapport): self
     {
-        $this->idrapport = $idrapport;
+        $this->idRapport = $idRapport;
 
         return $this;
     }

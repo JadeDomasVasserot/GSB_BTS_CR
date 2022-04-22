@@ -66,7 +66,7 @@ class Medicament
      *   @ORM\JoinColumn(name="idFamille", referencedColumnName="idFamille")
      * })
      */
-    private $idfamille;
+    private $idFamille;
     public function getIdMedicament(): ?int
     {
         return $this->idmedicament;
@@ -134,12 +134,12 @@ class Medicament
 
     public function getIdfamille(): ?Famille
     {
-        return $this->idfamille;
+        return $this->idFamille;
     }
 
-    public function setIdfamille(?Famille $idfamille): self
+    public function setIdfamille(string $idFamille): self
     {
-        $this->idfamille = $idfamille;
+        $this->idfamille = $idFamille;
 
         return $this;
     }

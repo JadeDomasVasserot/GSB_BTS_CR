@@ -179,7 +179,6 @@ class Praticien
     public function setLieuexercice(string $lieuExercice): self
     {
         $this->lieuExercice = $lieuExercice;
-
         return $this;
     }
     public function __toString() {
