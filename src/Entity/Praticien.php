@@ -62,7 +62,7 @@ class Praticien
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="dateEmbauche", type="date", nullable=true)
+     * @ORM\Column(name="dateEmbauche", type="date", nullable=false)
      */
     private $dateembauche;
 
@@ -78,7 +78,7 @@ class Praticien
      *
      * @ORM\ManyToOne(targetEntity="Lieu")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="lieuExercice", referencedColumnName="idLieu")
+     *   @ORM\JoinColumn(name="lieuExercice", referencedColumnName="idLieu", nullable=false)
      * })
      */
     private $lieuExercice;

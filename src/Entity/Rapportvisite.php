@@ -50,7 +50,7 @@ class Rapportvisite
      *
      * @ORM\ManyToOne(targetEntity="Motif")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idMotif", referencedColumnName="idMotif")
+     *   @ORM\JoinColumn(name="idMotif", referencedColumnName="idMotif", nullable=false)
      * })
      */
     private $idMotif;
@@ -66,7 +66,7 @@ class Rapportvisite
      *
      * @ORM\ManyToOne(targetEntity="Visiteur")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id", nullable=false)
      * })
      */
     private $idVisiteur;
@@ -76,10 +76,19 @@ class Rapportvisite
      *
      * @ORM\ManyToOne(targetEntity="Praticien")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idPraticien", referencedColumnName="idPraticien")
+     *   @ORM\JoinColumn(name="idPraticien", referencedColumnName="idPraticien", nullable=false)
      * })
      */
     private $idPraticien;
+     /**
+     * @var \Praticien
+     *
+     * @ORM\ManyToOne(targetEntity="Praticien")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idRemplacant", referencedColumnName="idPraticien", nullable=true)
+     * })
+     */
+    private $idRemplacant;
     public function getIdRapportvisite(): ?int
     {
         return $this->idrapportvisite;
@@ -164,6 +173,17 @@ class Rapportvisite
     public function setIdpraticien(Praticien $idPraticien): self
     {
         $this->idPraticien = $idPraticien;
+
+        return $this;
+    }
+    public function getIdremplacant(): ?Praticien
+    {
+        return $this->idRemplacant;
+    }
+
+    public function setIdremplacant(Praticien $idRemplacant): self
+    {
+        $this->idRemplacant = $idRemplacant;
 
         return $this;
     }

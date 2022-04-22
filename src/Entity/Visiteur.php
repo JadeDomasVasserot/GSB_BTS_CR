@@ -27,56 +27,56 @@ class Visiteur
     /**
      * @var string|null
      *
-     * @ORM\Column(name="nom", type="string", length=30, nullable=true, options={"fixed"=true})
+     * @ORM\Column(name="nom", type="string", length=30,  nullable=false, options={"fixed"=true})
      */
     private $nom;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="prenom", type="string", length=30, nullable=true, options={"fixed"=true})
+     * @ORM\Column(name="prenom", type="string", length=30, nullable=false, options={"fixed"=true})
      */
     private $prenom;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="login", type="string", length=20, nullable=true, options={"fixed"=true})
+     * @ORM\Column(name="login", type="string", length=20, nullable=false, options={"fixed"=true})
      */
     private $login;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="mdp", type="string", length=20, nullable=true, options={"fixed"=true})
+     * @ORM\Column(name="mdp", type="string", length=20, nullable=false, options={"fixed"=true})
      */
     private $mdp;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="adresse", type="string", length=30, nullable=true, options={"fixed"=true})
+     * @ORM\Column(name="adresse", type="string", length=30, nullable=false, options={"fixed"=true})
      */
     private $adresse;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="cp", type="string", length=5, nullable=true, options={"fixed"=true})
+     * @ORM\Column(name="cp", type="string", length=5, nullable=false, options={"fixed"=true})
      */
     private $cp;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="ville", type="string", length=30, nullable=true, options={"fixed"=true})
+     * @ORM\Column(name="ville", type="string", length=30, nullable=false, options={"fixed"=true})
      */
     private $ville;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="dateEmbauche", type="date", nullable=true)
+     * @ORM\Column(name="dateEmbauche", type="date", nullable=false)
      */
     private $dateembauche;
 
@@ -85,7 +85,7 @@ class Visiteur
      *
      * @ORM\ManyToOne(targetEntity="Laboratoire")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idLaboratoire", referencedColumnName="idLaboratoire")
+     *   @ORM\JoinColumn(name="idLaboratoire", referencedColumnName="idLaboratoire", nullable=false)
      * })
      */
     private $idLaboratoire;
@@ -95,7 +95,7 @@ class Visiteur
      *
      * @ORM\ManyToOne(targetEntity="Secteur")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idSecteur", referencedColumnName="idSecteur")
+     *   @ORM\JoinColumn(name="idSecteur", referencedColumnName="idSecteur", nullable=false)
      * })
      */
     private $idSecteur;

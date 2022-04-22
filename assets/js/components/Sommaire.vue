@@ -1,9 +1,11 @@
 <template>
   <div>
     <nav
-      class="navbar navbar-light sticky-top mb-5 mt-5"
+      class="navbar navbar-light sticky-top mb-5 mt-5 "
       style="background-color: #e3f2fd"
     >
+      <div class="container-fluid">
+    <img src="../../../public/img/logo.jpg" width="100px" alt="logo">
       <ul class="nav m-3">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/rapportvisite"
@@ -42,6 +44,7 @@
         <li></li>
         <li></li>
       </ul>
+      </div>
     </nav>
   </div>
 </template>

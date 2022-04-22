@@ -48,7 +48,7 @@ class Rapportmedicament
      *
      * @ORM\ManyToOne(targetEntity="Medicament")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idMedicament", referencedColumnName="idMedicament")
+     *   @ORM\JoinColumn(name="idMedicament", referencedColumnName="idMedicament", nullable=false)
      * })
      */
     private $idMedicament;
@@ -58,7 +58,7 @@ class Rapportmedicament
      *
      * @ORM\ManyToOne(targetEntity="Rapportvisite")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idRapport", referencedColumnName="idRapportVisite")
+     *   @ORM\JoinColumn(name="idRapport", referencedColumnName="idRapportVisite", nullable=false)
      * })
      */
     private $idRapport;

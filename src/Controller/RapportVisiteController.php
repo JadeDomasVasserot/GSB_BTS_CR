@@ -61,21 +61,23 @@ class RapportVisiteController extends AbstractController
         
         if (isset($_POST["PRA_REMPLACANT"])) {
             $remplacant = $_POST["PRA_REMPLACANT"];
-            $praticien = $this->getDoctrine()
+            $praticienRempla = $this->getDoctrine()
             ->getRepository(Praticien::class)
             ->findOneBy([
                 'idpraticien' => $remplacant,
             ]);
             $rapport->setEstremplacant(true);
-        } else {
-            $idPraticien = $_POST["PRA_NUM"];
-            $praticien = $this->getDoctrine()
-            ->getRepository(Praticien::class)
-            ->findOneBy([
-                'idpraticien' => $idPraticien,
-            ]);
+            $rapport->setIdremplacant($praticienRempla);
+        } 
+        else{
             $rapport->setEstremplacant(false);
         }
+        $idPraticien = $_POST["PRA_NUM"];
+        $praticien = $this->getDoctrine()
+        ->getRepository(Praticien::class)
+        ->findOneBy([
+            'idpraticien' => $idPraticien,
+        ]);
         $rapport->setIdpraticien($praticien);
         $entityManager->persist($rapport);
         $entityManager->flush();
@@ -186,7 +188,14 @@ class RapportVisiteController extends AbstractController
             }
             $nomPraticien = $rapp->getIdpraticien()->getNom();
             $prenomPraticien = $rapp->getIdpraticien()->getPrenom();
-
+            if($rapp->getIdremplacant() != null){
+            $nomRemplacant = $rapp->getIdremplacant()->getNom();
+            $prenomRemplacant = $rapp->getIdremplacant()->getPrenom();
+            }
+            else{
+                $nomRemplacant = null;
+                $prenomRemplacant = null;
+            }
 
             $rapp = array(
                 'id' => $id,
@@ -197,8 +206,8 @@ class RapportVisiteController extends AbstractController
                 'motifText' => $motifText,
                 'nomPraticien' => $nomPraticien,
                 'prenomPraticien' =>$prenomPraticien,
-
-
+                'nomRemplacant' => $nomRemplacant,
+                'prenomRemplacant' =>$prenomRemplacant,
             );
 
             array_push($rapportsTab, $rapp);

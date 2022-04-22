@@ -3,7 +3,6 @@
     <table class="table table-light table-hover text-center">
       <thead>
         <tr>
-          <th scope="col">Id du praticien</th>
           <th scope="col">Nom</th>
           <th scope="col">Prénom</th>
           <th scope="col">Adresse</th>
@@ -20,7 +19,6 @@
           :key="praticien.idpraticien"
           :value="praticien.idpraticien"
         >
-          <th>{{praticien.idpraticien}}</th>
           <td>{{praticien.nom}}</td>
           <td>{{praticien.prenom}}</td>
           <td>{{praticien.adresse}}</td>

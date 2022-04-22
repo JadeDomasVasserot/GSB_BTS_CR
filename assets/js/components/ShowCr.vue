@@ -5,10 +5,10 @@
     <table class="table table-light table-hover text-center mt-3">
       <thead>
         <tr>
-          <th scope="col">Id du rapport</th>
           <th scope="col">Date de la visite</th>
           <th scope="col">Praticien</th>
           <th scope="col">Est remplaçant ?</th>
+           <th scope="col">Praticien Remplaçant</th>
           <th scope="col">Bilan</th>
           <th scope="col">Motif</th>
           <th scope="col">Produits</th>
@@ -20,10 +20,10 @@
           :key="rapport.id"
           :value="rapport.id"
         >
-          <th>{{rapport.id}}</th>
           <td v-if="rapport.dateVisite">{{moment(rapport.dateVisite.date).format("DD/MM/YYYY") }}</td>
           <td>{{rapport.prenomPraticien}} {{rapport.nomPraticien}}</td>
           <td>{{rapport.estRemplacant}}</td>
+           <td>{{rapport.prenomRemplacant}} {{rapport.nomRemplacant}}</td>
           <td>{{rapport.bilan}}</td>
           <td>{{rapport.idMotif}}</td>
           <td><button @click="voirInfos(rapport.id)">Voir infos</button></td>

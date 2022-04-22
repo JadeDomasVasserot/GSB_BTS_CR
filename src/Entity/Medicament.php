@@ -34,7 +34,7 @@ class Medicament
     /**
      * @var string|null
      *
-     * @ORM\Column(name="composition", type="string", length=50, nullable=true)
+     * @ORM\Column(name="composition", type="string", length=50, nullable=false)
      */
     private $composition;
 
@@ -64,7 +64,7 @@ class Medicament
      *
      * @ORM\ManyToOne(targetEntity="Famille")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idFamille", referencedColumnName="idFamille")
+     *   @ORM\JoinColumn(name="idFamille", referencedColumnName="idFamille", nullable=false)
      * })
      */
     private $idFamille;
