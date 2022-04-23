@@ -21,13 +21,12 @@ Composer, GitHub, Git, Synmfony, PhpStorm ou Visual Studio Code
 
 Création du projet : 
 composer create-project symfony/website-skeleton +nom projet
+ou symfony new
 symfony
 
 Démarrer/Arrêter le serveur :
 symfony serveur:start / symfony serveur:stop
 
-Changer la version de PHP : 
-echo 7.4.24 > .php-version
 
 Mettre sur GitHub : 
 git init 
@@ -41,6 +40,8 @@ On a ensuite utilisé GitDeskop
 
 Création de la base de donnée : 
 php bin/console doctrine:database:create 
+php bin/console doctrine:schema:create
+symfony console doctrine:schema:update --force 
 (on avait  créé la BDD et changé la route de la base de donnée vers la notre au préalable)
 
 Faire la création des entités à partir de la base de données:

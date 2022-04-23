@@ -16,9 +16,7 @@
               v-on:keyup.enter="searchWithEnter()"
               v-model="user"
             />
-          <div v-if="isEmptyUser()">
-            Merci de rentrer un utilisateur
-          </div>
+         
           </div>
           <div class="mb-3">
             <label for="inputPassword" class="form-label">Mot de passe*</label>
@@ -31,9 +29,6 @@
               v-model="password"
               required
             />
-          </div>
-          <div v-if="isEmptyPassword()">
-            Merci de rentrer un mot de passe
           </div>
           <button :disabled="isEmptyPassword()||isEmptyUser()" id="buttonSubmit" type="submit" class="btn btn-primary mt-2">Connexion</button>
         </form>

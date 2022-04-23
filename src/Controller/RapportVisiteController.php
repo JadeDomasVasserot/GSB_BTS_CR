@@ -31,16 +31,20 @@ class RapportVisiteController extends AbstractController
     /**
      * @Route("/new", name="app_rapport_new", methods={"POST"})
      * créer un  Rapport de visite ezt ajout en bdd
+     * Ajout dans RapportVisite et dans RapportMedicament
      */
     public function newRapport(SessionInterface $session, EntityManagerInterface $entityManager)
     {
+        // création d'un nouveau rapport de visite
         $rapport = new Rapportvisite();
         $entityManager = $this->getDoctrine()->getManager();
+        //on cherche l'user selon l'id de la session
         $user = $this->getDoctrine()
         ->getRepository(Visiteur::class)
         ->findOneBy([
             'id' => $session->get('id'),
         ]);
+        // on ajoute l'user correspondant à la création du rapport
         $rapport->setIdvisiteur($user);
         $dateVisite = $_POST["RAP_DATEVISITE"];
         $date = new \DateTime($dateVisite);
@@ -48,17 +52,20 @@ class RapportVisiteController extends AbstractController
         $bilan = $_POST["RAP_BILAN"];
         $rapport->setBilan($bilan);
         $motif = $_POST["RAP_MOTIF"];
+        // On ajoute les informations grâce aux setters et en récupérant les variables POST
+        // On cherche le motif selectionné par rapport à la variable POST
         $motifSearch = $this->getDoctrine()
         ->getRepository(Motif::class)
         ->findOneBy([
             'idmotif' => $motif,
         ]);
+        // on ajoute le motif qui correspond au rapport
         $rapport->setIdmotif($motifSearch);
         if ($motif === "Autre") {
             $motifTxt = $_POST["RAP_MOTIFAUTRE"];
             $rapport->setMotiftext($motifTxt);
         }
-        
+        // Si le rapport à un remplaçant on cherche le praticien qui correspond à la variable POST 
         if (isset($_POST["PRA_REMPLACANT"])) {
             $remplacant = $_POST["PRA_REMPLACANT"];
             $praticienRempla = $this->getDoctrine()
@@ -66,12 +73,15 @@ class RapportVisiteController extends AbstractController
             ->findOneBy([
                 'idpraticien' => $remplacant,
             ]);
+            // on set qu'il est remplaçant et on set le remplaçant
             $rapport->setEstremplacant(true);
             $rapport->setIdremplacant($praticienRempla);
         } 
         else{
+            // sinon on dit qu'il n'y a pas de remplaçant
             $rapport->setEstremplacant(false);
         }
+        // on ajoute en cherchant le praticien selon la variable POST obtenue
         $idPraticien = $_POST["PRA_NUM"];
         $praticien = $this->getDoctrine()
         ->getRepository(Praticien::class)
@@ -79,14 +89,16 @@ class RapportVisiteController extends AbstractController
             'idpraticien' => $idPraticien,
         ]);
         $rapport->setIdpraticien($praticien);
+        // on ajoute l'entité rapport créée à la BDD
         $entityManager->persist($rapport);
         $entityManager->flush();
-
+        // Si Produit1 est détecté et pas == null alors je créer un nouveau Rapportmedicament
         if (isset($_POST["PROD1"])&& $_POST["PROD1"] !== "NULL") {
             $rapportMedicament1 = new Rapportmedicament();
             $entityManager = $this->getDoctrine()->getManager();
             $produit1 = $_POST["PROD1"];
             $rapportMedicament1->setEstechantillon(false);
+            // Je mets la variable estEchantillon à faux et je recherche le médicament selon la variable Post
             $medicament = $this->getDoctrine()
             ->getRepository(Medicament::class)
             ->findOneBy([
@@ -94,15 +106,19 @@ class RapportVisiteController extends AbstractController
             ]);
             $rapportMedicament1->setIdmedicament($medicament);
             $rapportMedicament1->setEstpresente(true);
+            // Je dis que c'est un médicament qui a été présenté et j'ajoute l'id du rapport qui a été créé juste au dessus
             $rapportMedicament1->setIdrapport($rapport);
+             // on ajoute l'entité rapport créée à la BDD
             $entityManager->persist($rapportMedicament1);
             $entityManager->flush();
         }
+         // Si Produit2 est détecté et pas == null alors je créer un nouveau Rapportmedicament
         if (isset($_POST["PROD2"])&& $_POST["PROD2"] !== "NULL") {
             $rapportMedicament2 = new Rapportmedicament();
             $entityManager = $this->getDoctrine()->getManager();
             $produit2 = $_POST["PROD2"];
             $rapportMedicament2->setEstechantillon(false);
+            // Je mets la variable estEchantillon à faux et je recherche le médicament selon la variable Post
             $medicament = $this->getDoctrine()
             ->getRepository(Medicament::class)
             ->findOneBy([
@@ -110,10 +126,13 @@ class RapportVisiteController extends AbstractController
             ]);
             $rapportMedicament2->setIdmedicament($medicament);
             $rapportMedicament2->setEstpresente(true);
+             // Je dis que c'est un médicament qui a été présenté et j'ajoute l'id du rapport qui a été créé juste au dessus
             $rapportMedicament2->setIdrapport($rapport);
+             // on ajoute l'entité rapport créée à la BDD
             $entityManager->persist($rapportMedicament2);
             $entityManager->flush();
         }
+         // Si echantillon1 est détecté et pas == null alors je créer un nouveau Rapportmedicament
         if (isset($_POST["PRA_ECH1"]) && isset($_POST["PRA_QTE1"])&& $_POST["PRA_ECH1"] !== "NULL") {
             $rapportMedicament3 = new Rapportmedicament();
             $entityManager = $this->getDoctrine()->getManager();
@@ -127,11 +146,14 @@ class RapportVisiteController extends AbstractController
             ->findOneBy([
                 'idmedicament' => $echantillon1,
             ]);
+             // Je dis que c'est un médicament qui a été donnée en échantillon  et non présenté et j'ajoute l'id du rapport qui a été créé juste au dessus
             $rapportMedicament3->setIdrapport($rapport);
             $rapportMedicament3->setIdmedicament($medicament);
+             // on ajoute l'entité rapport créée à la BDD
             $entityManager->persist($rapportMedicament3);
             $entityManager->flush();
         }
+         // Si echantillon2 est détecté et pas == null alors je créer un nouveau Rapportmedicament
         if (isset($_POST["PRA_ECH2"]) && isset($_POST["PRA_QTE2"])&& $_POST["PRA_ECH2"] !== "NULL") {
             $rapportMedicament4 = new Rapportmedicament();
             $entityManager = $this->getDoctrine()->getManager();
@@ -145,8 +167,10 @@ class RapportVisiteController extends AbstractController
             ->findOneBy([
                 'idmedicament' => $echantillon2,
             ]);
+            // Je dis que c'est un médicament qui a été donnée en échantillon et non présenté et j'ajoute l'id du rapport qui a été créé juste au dessus
             $rapportMedicament4->setIdmedicament($medicament);
             $rapportMedicament4->setIdrapport($rapport);
+             // on ajoute l'entité rapport créée à la BDD
             $entityManager->persist($rapportMedicament4);
             $entityManager->flush();
         }

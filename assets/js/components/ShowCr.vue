@@ -26,7 +26,7 @@
            <td>{{rapport.prenomRemplacant}} {{rapport.nomRemplacant}}</td>
           <td>{{rapport.bilan}}</td>
           <td>{{rapport.idMotif}}</td>
-          <td><button @click="voirInfos(rapport.id)">Voir infos</button></td>
+          <td><button class="btn btn-info" @click="voirInfos(rapport.id)">Voir infos</button></td>
         </tr>
       </tbody>
     </table>

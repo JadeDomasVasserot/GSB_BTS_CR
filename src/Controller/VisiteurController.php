@@ -14,7 +14,7 @@ class VisiteurController extends AbstractController
 {
     /**
      * @Route("/", name="app_home_visiteur")
-     * affiche la page home pour voir le profil du visiteur
+     * affiche la page profil du visiteur connecté
      */
     public function profil(SessionInterface $session)
     {
@@ -24,6 +24,7 @@ class VisiteurController extends AbstractController
     }
       /**
      * @Route("/session", name="currentUser")
+     * permet de récupérer les informations de l'utilisateur connecté
      */
     public function session(SessionInterface $session){
 
@@ -69,7 +70,7 @@ class VisiteurController extends AbstractController
     }
     /**
      * @Route("/index", name="app_choix_visiteur")
-     * permet de choisir son visiteur
+     * permet de choisir son visiteur (index visiteur)
      */
     public function choixVisiteur()
     {

@@ -14,7 +14,7 @@ class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="app_home")
-     * affiche la page home
+     * affiche la page home de connexion
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class HomeController extends AbstractController
     }
     /**
      * @Route("/connexion", name="app_connexion", methods="POST")
-     * connecte l'utilisateur
+     * connecte l'utilisateur puis va sur la page profil si la connexion marche
      */
     public function authentification(Request $request, SessionInterface $session)
     {
