@@ -5,6 +5,7 @@
     <table class="table table-light table-hover text-center mt-3">
       <thead>
         <tr>
+          <th>Id Rapport</th>
           <th scope="col">Date de la visite</th>
           <th scope="col">Praticien</th>
           <th scope="col">Est remplaçant ?</th>
@@ -20,6 +21,7 @@
           :key="rapport.id"
           :value="rapport.id"
         >
+          <th>{{rapport.id}}</th>
           <td v-if="rapport.dateVisite">{{moment(rapport.dateVisite.date).format("DD/MM/YYYY") }}</td>
           <td>{{rapport.prenomPraticien}} {{rapport.nomPraticien}}</td>
           <td>{{rapport.estRemplacant}}</td>

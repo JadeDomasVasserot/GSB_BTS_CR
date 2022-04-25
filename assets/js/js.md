@@ -23,7 +23,7 @@ searchWithEnter permet à l'utilisateur de valider avec la touche entrée
 isEmptyUser et isEmptyPassword permettent de vérifier que l'utilisateur ait bien rentré ses logins/password et gère l'état du bouton pour le mettre disabled ou non
 
     Index Medicament/Praticien/Visiteur
-Les pages index permettent à l'utilisateur de chosiir un médicament/praticien ou visiteur afin d'obtenir ses informations.
+Les pages index permettent à l'utilisateur de chosir un médicament/praticien ou visiteur afin d'obtenir ses informations.
 Il y a donc un select pour choisir don items et grâce au Vus JS et à Axios où va récupérer les informations de l'item choisi.
     Explication des méthodes :
 On fait un appel axios pour récupérer la liste de l'item en question (avec API Plateform).
