@@ -7,14 +7,14 @@ export default {
     name: 'showcr',
     data() {
       return{
-        rapports: axios.get('http://127.0.0.1:8000/rapportvisite/show/list').then(rep => this.rapports = rep.data),
+        rapports: axios.get('https://127.0.0.1:8000/rapportvisite/show/list').then(rep => this.rapports = rep.data),
         infoProduct: false,
         medicaments:'',
       }
     },
     methods:{
       voirInfos(id){
-        this.medicaments =  axios.get('http://127.0.0.1:8000/rapportvisite/voirProduits/'+id).then(rep => this.medicaments = rep.data),
+        this.medicaments =  axios.get('https://127.0.0.1:8000/rapportvisite/voirProduits/'+id).then(rep => this.medicaments = rep.data),
 
         this.infoProduct = true;
       }

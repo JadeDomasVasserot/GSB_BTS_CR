@@ -7,7 +7,7 @@ export default {
     name: 'indexvisiteur',
     data() {
       return{
-        visiteurs: axios.get('http://127.0.0.1:8000/api/visiteurs').then(rep => this.visiteurs = rep.data),
+        visiteurs: axios.get('https://127.0.0.1:8000/api/visiteurs').then(rep => this.visiteurs = rep.data),
         visiteurChoix: "",
         choixVisiteurAPI: "",
       }
@@ -17,7 +17,7 @@ export default {
         return this.choixVisiteur != null;
       },
       choixVisiteur(){
-          this.choixVisiteurAPI = axios.get('http://127.0.0.1:8000/api/visiteurs/'+ this.visiteurChoix)
+          this.choixVisiteurAPI = axios.get('https://127.0.0.1:8000/api/visiteurs/'+ this.visiteurChoix)
           .then(rep => this.choixVisiteurAPI = rep.data);
       },
     }

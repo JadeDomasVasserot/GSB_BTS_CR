@@ -7,14 +7,14 @@ export default {
     name: 'profil',
     data() {
       return {
-        currentUserSession: axios.get('http://127.0.0.1:8000/visiteur/session').then(rep => this.currentUserSession = rep.data),
+        currentUserSession: axios.get('https://127.0.0.1:8000/visiteur/session').then(rep => this.currentUserSession = rep.data),
         user:'',
         info: false,
       };
     },
     methods: {
       isSession(id){
-        this.user =  axios.get("http://127.0.0.1:8000/api/visiteurs/"+id).then(rep => this.user = rep.data)
+        this.user =  axios.get("https://127.0.0.1:8000/api/visiteurs/"+id).then(rep => this.user = rep.data)
         this.info = true;
       }
     }, 

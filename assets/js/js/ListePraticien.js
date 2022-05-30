@@ -7,7 +7,7 @@ export default {
   name: 'listepraticien',
     data() {
       return{
-        praticiens: axios.get('http://127.0.0.1:8000/api/praticiens').then(rep => this.praticiens = rep.data) 
+        praticiens: axios.get('https://127.0.0.1:8000/api/praticiens').then(rep => this.praticiens = rep.data) 
       }
     },
   };

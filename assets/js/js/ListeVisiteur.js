@@ -7,7 +7,7 @@ export default {
   name: 'listevisiteur',
     data() {
       return{
-        visiteurs: axios.get('http://127.0.0.1:8000/api/visiteurs').then(rep => this.visiteurs = rep.data) 
+        visiteurs: axios.get('https://127.0.0.1:8000/api/visiteurs').then(rep => this.visiteurs = rep.data) 
       }
     },
   };

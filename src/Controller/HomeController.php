@@ -57,7 +57,7 @@ class HomeController extends AbstractController
                     $session->set('laboratoire',$laboratoire);
                     $session->set('secteur',$secteur);
                     $session->set('dateEmbauche',$dateEmbauche);
-                  
+                    
                     $response = new Response();
                     $response->setContent(json_encode(['id'=> $id,
                                                         'nom' => $nom,
